@@ -1,0 +1,28 @@
+{
+  "root": "apps/showcaser-e2e",
+  "sourceRoot": "apps/showcaser-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/showcaser-e2e/cypress.json",
+        "devServerTarget": "showcaser:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "showcaser:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/showcaser-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["showcaser"]
+}

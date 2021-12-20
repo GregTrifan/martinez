@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "showcaser": "apps/showcaser",
+    "showcaser-e2e": "apps/showcaser-e2e"
+  }
+}

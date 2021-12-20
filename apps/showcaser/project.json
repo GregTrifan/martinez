@@ -1,0 +1,73 @@
+{
+  "root": "apps/showcaser",
+  "sourceRoot": "apps/showcaser/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/showcaser",
+        "index": "apps/showcaser/src/index.html",
+        "baseHref": "/",
+        "main": "apps/showcaser/src/main.tsx",
+        "polyfills": "apps/showcaser/src/polyfills.ts",
+        "tsConfig": "apps/showcaser/tsconfig.app.json",
+        "assets": [
+          "apps/showcaser/src/favicon.ico",
+          "apps/showcaser/src/assets"
+        ],
+        "styles": ["apps/showcaser/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/showcaser/src/environments/environment.ts",
+              "with": "apps/showcaser/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "showcaser:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "showcaser:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/showcaser/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/showcaser"],
+      "options": {
+        "jestConfig": "apps/showcaser/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
