@@ -1,12 +1,15 @@
-import styles from './app.module.scss';
-import NxWelcome from './nx-welcome';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './components/layout';
+import HomePage from './pages';
 export function App() {
   return (
-    <>
-      <NxWelcome title="showcaser" />
-      <div />
-    </>
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   );
 }
 
