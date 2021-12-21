@@ -1,59 +1,6 @@
 {
   "version": 2,
   "projects": {
-    "management": {
-      "projectType": "application",
-      "root": "apps/management",
-      "targets": {
-        "build": {
-          "executor": "@nx-plus/nuxt:browser",
-          "options": {
-            "buildDir": "dist/apps/management"
-          },
-          "configurations": {
-            "production": {}
-          }
-        },
-        "serve": {
-          "executor": "@nx-plus/nuxt:server",
-          "options": {
-            "browserTarget": "management:build",
-            "dev": true
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "management:build:production",
-              "dev": false
-            }
-          }
-        },
-        "static": {
-          "executor": "@nx-plus/nuxt:static",
-          "options": {
-            "browserTarget": "management:build:production"
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "apps/management/**/*.{ts,js,vue}"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/management"
-          ],
-          "options": {
-            "jestConfig": "apps/management/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
     "showcaser": "apps/showcaser",
     "showcaser-e2e": "apps/showcaser-e2e"
   }
