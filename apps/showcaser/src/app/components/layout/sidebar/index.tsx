@@ -10,7 +10,7 @@ import { Link, useLocation } from 'react-router-dom';
 const Sidebar = () => {
   const location = useLocation();
   return (
-    <div className="flex flex-col w-64 h-screen px-4 py-8 bg-white border-r dark:bg-gray-800 dark:border-gray-600">
+    <div className="hidden md:flex flex-col w-64 h-screen px-4 py-8 bg-white border-r dark:bg-gray-800 dark:border-gray-600">
       <h2 className="heading text-gray-800 dark:text-white">Martinez</h2>
       <div className="relative mt-6 ">
         <span className="absolute inset-y-0 left-0 flex items-center pl-3">
